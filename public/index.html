@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS — Team Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Auth screens -->
+    <div id="auth-screen" class="auth-screen hidden">
+      <div class="auth-bg">
+        <div class="grid-lines"></div>
+        <div class="scan-line"></div>
+      </div>
+      <div class="auth-container">
+        <div class="auth-logo">
+          <span class="logo-bracket">[</span>NEXUS<span class="logo-bracket">]</span>
+          <div class="logo-sub">TEAM TASK PROTOCOL</div>
+        </div>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-tab="login">LOGIN</button>
+          <button class="tab-btn" data-tab="signup">SIGN UP</button>
+        </div>
+        <form id="login-form" class="auth-form">
+          <div class="field-group">
+            <label class="field-label">EMAIL</label>
+            <input type="email" id="login-email" class="nx-input" placeholder="user@domain.com" required />
+          </div>
+          <div class="field-group">
+            <label class="field-label">PASSWORD</label>
+            <input type="password" id="login-password" class="nx-input" placeholder="••••••••" required />
+          </div>
+          <div id="login-error" class="form-error hidden"></div>
+          <button type="submit" class="nx-btn primary full-width">INITIALIZE SESSION</button>
+        </form>
+        <form id="signup-form" class="auth-form hidden">
+          <div class="field-group">
+            <label class="field-label">NAME</label>
+            <input type="text" id="signup-name" class="nx-input" placeholder="Your name" required />
+          </div>
+          <div class="field-group">
+            <label class="field-label">EMAIL</label>
+            <input type="email" id="signup-email" class="nx-input" placeholder="user@domain.com" required />
+          </div>
+          <div class="field-group">
+            <label class="field-label">PASSWORD</label>
+            <input type="password" id="signup-password" class="nx-input" placeholder="min 6 characters" required />
+          </div>
+          <div id="signup-error" class="form-error hidden"></div>
+          <button type="submit" class="nx-btn primary full-width">CREATE ACCOUNT</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-app" class="hidden">
+      <!-- Sidebar -->
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <span class="logo-bracket">[</span>NX<span class="logo-bracket">]</span>
+          </div>
+          <button id="new-project-btn" class="nx-btn accent small" title="New Project">+</button>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item active" data-view="dashboard">
+            <span class="nav-icon">◈</span><span>DASHBOARD</span>
+          </a>
+          <a href="#" class="nav-item" data-view="projects">
+            <span class="nav-icon">◫</span><span>PROJECTS</span>
+          </a>
+        </nav>
+        <div class="sidebar-section-label">PROJECTS</div>
+        <div id="sidebar-projects" class="sidebar-projects"></div>
+        <div class="sidebar-footer">
+          <div class="user-chip" id="user-chip">
+            <div class="user-avatar" id="sidebar-avatar"></div>
+            <span id="sidebar-username"></span>
+          </div>
+          <button id="logout-btn" class="nx-btn ghost small">EXIT</button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Top Bar -->
+        <div class="topbar">
+          <div class="topbar-title" id="topbar-title">DASHBOARD</div>
+          <div class="topbar-actions" id="topbar-actions"></div>
+        </div>
+
+        <!-- Views -->
+        <div id="view-dashboard" class="view active"></div>
+        <div id="view-projects" class="view hidden"></div>
+        <div id="view-project-detail" class="view hidden"></div>
+      </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div id="modal-content" class="modal-content"></div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/projects.js"></script>
+  <script src="/js/tasks.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
