@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-**[https://nexus-task-manager.up.railway.app](https://nexus-task-manager.up.railway.app)**
+**[https://nexus-task-manager-production-a235.up.railway.app](https://nexus-task-manager-production-a235.up.railway.app)**
 
 ---
 
